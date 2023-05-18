@@ -9,7 +9,9 @@ for sub in subdoms:
     sub_domains = f"http://{sub}.{sys.argv[1]}" 
 
     try:
-        requests.get(sub_domains)
+        r = requests.get(sub_domains)
+        if r.status_code==404:
+            pass
     
     except requests.ConnectionError: 
         pass
